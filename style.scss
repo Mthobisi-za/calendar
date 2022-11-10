@@ -1,0 +1,90 @@
+$white: #fff;
+$black: #000;
+:root {
+    --red: #990000;
+    --yellow: #e6b800;
+}
+
+.calendar {
+    margin: 50px auto;
+    width: 60%;
+    .calendar-top {
+        background-color: var(--red);
+        padding: 15px 10px;
+        width: 100%;
+        text-align: center;
+        .icons {
+            color: #fff;
+            background-color: transparent;
+            border: none;
+            font-size: 30px;
+            transition: color .3s;
+        }
+        #prev {
+            float: left;
+        }
+        #next {
+            float: right;
+        }
+        .icons:hover {
+            cursor: pointer;
+            color: var(--yellow);
+        }
+        .icons:focus {
+            outline: none;
+        }
+        .top {
+            display: inline-block;
+            h3 {
+                color: #fff;
+                font-size: 35px;
+            }
+        }
+    }
+    .calendar-bottom {
+        border: 1px solid var(--red);
+        .days-of-week {
+            background-color: var(--yellow);
+            p {
+                border-right: 1px solid #fff;
+                display: inline-block;
+                width: 14.28%;
+                margin: 0;
+                color: #fff;
+                font-size: 20px;
+                font-weight: 500;
+                text-align: center;
+            }
+            p:last-child {
+                border-right: none;
+            }
+        }
+        .days {
+            font-size: 0px;
+            .one-day {
+                border: 1px solid #ebebeb;
+                display: inline-block;
+                width: 14.28%;
+                height: 100px;
+                margin: 0;
+                padding: 0;
+                background-color: #fff;
+                position: relative;
+                .number {
+                    background-color: #000;
+                    color: #fff;
+                    padding: 2px 10px;
+                    height: 30px;
+                    font-size: 14px;
+                    position: absolute;
+                    top: -1px;
+                    left: -1px;
+                    margin: 0;
+                }
+                .today {
+                    background-color: var(--red) !important;
+                }
+            }
+        }
+    }
+}
