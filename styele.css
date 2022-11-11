@@ -38,6 +38,10 @@
     grid-template-columns: 14.28% 14.28% 14.28% 14.28% 14.28% 14.28% 14.28%;
 }
 
+.days-of-week div p {
+    text-align: center;
+}
+
 .days {
     font-size: 15px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -46,12 +50,19 @@
 
 .days p {
     cursor: pointer;
+    text-align: center;
+    padding: 5px;
+    transition: 0.5s ease-in-out;
+}
+
+.days p:hover {
+    background-color: #d95043;
+    text-align: center;
 }
 
 .today {
     background-color: #F2F2F2;
     color: #404040;
-    width: 50%;
 }
 
 @media (max-width:500px) {
