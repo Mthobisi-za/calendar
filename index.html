@@ -9,6 +9,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+    <script src="https://apis.google.com/js/api.js"></script>
+
 </head>
 
 <body>
@@ -47,10 +50,65 @@
             </div>
             <br>
             <div class="days"></div>
+            <p id="content"></p>
         </div>
     </div>
 
 </body>
 <script defer src="./calender.js"></script>
+<script defer src="./events.js"></script>
+<script src="https://apis.google.com/js/api.js"></script>
+<script defer>
+    function start() {
+        // 2. Initialize the JavaScript client library.
+        gapi.client.init({
+            'apiKey': 'AIzaSyD7dbSZYCymP0VCVFbIHntJSvokRQq2Wqc',
+            // clientId and scope are optional if auth is not required.
+            'clientId': '673306542856-c91rhs8smh1vu0m2uq2dlsumq1uq4fg5.apps.googleusercontent.com',
+            'scope': 'profile',
+        }).then(function() {
+            // 3. Initialize and make the API request.
+            return gapi.client.request({
+                'path': 'https://people.googleapis.com/v1/people/me?requestMask.includeField=person.names',
+            })
+        }).then(function(response) {
+            console.log(response.result);
+        }, function(reason) {
+            console.log('Error: ' + reason.result.error.message);
+        });
+        //create('mtho')
+        makeApiCall();
+    };
+    // 1. Load the JavaScript client library.
+    gapi.load('client', start);
+
+    function makeApiCall() {
+        var params = {
+            // The ID of the spreadsheet to retrieve data from.
+            spreadsheetId: '62207632', // TODO: Update placeholder value.
+
+            // The A1 notation of the values to retrieve.
+            range: '10', // TODO: Update placeholder value.
+
+            // How values should be represented in the output.
+            // The default render option is ValueRenderOption.FORMATTED_VALUE.
+            //valueRenderOption: '', // TODO: Update placeholder value.
+
+            // How dates, times, and durations should be represented in the output.
+            // This is ignored if value_render_option is
+            // FORMATTED_VALUE.
+            // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
+            dateTimeRenderOption: '', // TODO: Update placeholder value.
+        };
+
+        var request = gapi.client.sheets.spreadsheets.values.get(params);
+        request.then(function(response) {
+            // TODO: Change code below to process the `response` object:
+            console.log(response.result);
+        }, function(reason) {
+            console.error('error: ' + reason.result.error.message);
+        });
+    }
+</script>
 
 </html>

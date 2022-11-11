@@ -1,3 +1,19 @@
+function rel() {
+    //events
+    var items = document.querySelectorAll('.number');
+
+    items.forEach(ele => {
+        ele.addEventListener('click', (ele) => {
+            var list = [...ele.target.classList];
+            var arr = list.filter(item => item !== 'today')
+            var endof = ele.target.textContent + ' ' + arr[1] + ' ' + arr[2];
+
+
+            console.log('clicked', endof, arr);
+        })
+    });
+};
+
 function getTheMonth(num) {
     var month = new Array();
     month[0] = "January";
@@ -30,7 +46,7 @@ var year = today.getFullYear(); //display year
 var thisYear = today.getFullYear();
 $("#monthYear").html(month + ", " + year);
 displayDays(monthDay, year);
-
+//+ 
 function displayDays(ddMonth, ddYear) {
     var x = 0;
     var y = 1;
@@ -41,10 +57,10 @@ function displayDays(ddMonth, ddYear) {
     while (x != (lastDay + blanks)) {
         if (x >= firstDayPosition) {
             if (y === day && ddMonth == thisMonth && ddYear == thisYear) {
-                $("<div class='one-day'><p class='number today'>" + y + "</p></div>").appendTo(".days");
+                $(`<div class='one-day'><p class='number today ${getTheMonth(ddMonth) + " " + ddYear} '>` + y + "</p></div>").appendTo(".days");
                 y++;
             } else {
-                $("<div class='one-day'><p class='number'>" + y + "</p></div>").appendTo(".days");
+                $(`<div class='one-day'><p class='number ${getTheMonth(ddMonth) + " " + ddYear}'>` + y + "</p></div>").appendTo(".days");
                 y++;
             }
         } else {
@@ -66,6 +82,7 @@ $("#prev").click(function() {
     $("#monthYear").html(month + ", " + year);
     $(".days").empty();
     displayDays(monthDay, year);
+    rel();
 });
 $("#next").click(function() {
     if (monthDay == 11) {
@@ -78,4 +95,14 @@ $("#next").click(function() {
     $("#monthYear").html(month + ", " + year);
     $(".days").empty();
     displayDays(monthDay, year);
+    rel();
 });
+
+
+
+
+
+
+
+
+rel();
