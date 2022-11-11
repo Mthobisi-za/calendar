@@ -1,0 +1,61 @@
+.calendar {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.calendar-top {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #d95043;
+}
+
+.calendar-top button {
+    padding: 20;
+    background-color: transparent;
+    color: #404040;
+    border: none;
+    font-size: 30px;
+}
+
+#monthYear {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.calendar-bottom {
+    background-color: grey;
+    width: 90%;
+    margin: auto;
+}
+
+.calendar-bottom .days-of-week,
+.days {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 14.28% 14.28% 14.28% 14.28% 14.28% 14.28% 14.28%;
+}
+
+.days {
+    font-size: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #F2F2F2;
+}
+
+.days p {
+    cursor: pointer;
+}
+
+.today {
+    background-color: #F2F2F2;
+    color: #404040;
+    width: 50%;
+}
+
+@media (max-width:500px) {
+    .days-of-week div p {
+        font-size: 15px;
+    }
+}
