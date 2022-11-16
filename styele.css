@@ -55,7 +55,7 @@
     transition: 0.5s ease-in-out;
 }
 
-.days p:hover {
+.days .activedays:hover {
     background-color: #d95043;
     text-align: center;
 }
@@ -63,6 +63,27 @@
 .today {
     background-color: #F2F2F2;
     color: #404040;
+}
+.pastday{
+    color: #696666;
+}
+.pastday:hover{
+    background-color: none;
+    text-align: center;
+}
+.loading{
+    width: 30%;
+    margin: auto;
+    text-align: center!important;
+    display: none;
+}
+.loading p{
+    text-align: center!important;
+    color: white;
+    font-size: 20px;
+}
+.booked{
+    color: #f5b7b1;
 }
 
 @media (max-width:500px) {

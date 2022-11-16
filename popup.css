@@ -1,0 +1,63 @@
+.popup{
+    width: 100%;
+    position: fixed;
+    min-height: 50vh;
+    background-color: rgba(0, 0, 0, 0.608);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    display: none;
+}
+.popupbox{
+    background-color: white;
+    width: 89%;
+    margin: auto;
+    min-height: 50vh;
+    border-radius: 5px;
+}
+.popupbox .titlebio{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 10px;
+}
+.popupbox .position{
+    text-align: right;
+    padding-right: 10px;
+}
+.popupbox .bookday{
+    text-align: right;
+    padding-right: 10px;
+}
+.formbook{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    row-gap: 40px;
+}
+.formbook input{
+    outline: none;
+    border: none;
+    border-bottom: #d95043 0.5px solid;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+.btn-holder{
+    text-align: center;
+}
+.btn-holder button{
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #d95043;
+    outline: #d95043 0.5px solid;
+    border: #d95043 0.5px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
