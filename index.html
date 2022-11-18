@@ -64,19 +64,25 @@
                 <p class="titlebio">Book {Name}</p>
                 <p class="position">Occupation {Front end developer}</p>
                 <p class="bookday">Day of booking : <span class='dateofbooking'></span></p>
-                <div class="formbook">
-                    <input type="text" placeholder="Name">
-                    <input type="email" placeholder="Email">
-                </div>
-                <br>
-                <br>
-                <div class="btn-holder">
-                    <button>Submit</button>
+               
+                    <div class="formbook">
+                        <input type="text" name="name" placeholder="Name" hidden class="name"/>
+                        <input type="text" name="surname" placeholder="Surname" hidden class="surname"/>
+                        <input type="text" name="title" placeholder="Title" hidden class="title"/>
+                        <input type="text" name="Booking date" placeholder="Booking Date" hidden class="date"/>
+                        <input type="text" name="client name"  placeholder="Name" class="cname" required>
+                        <input type="email" name="client email" placeholder="Email" class="cemail" required>
+                    </div>
                     <br>
                     <br>
-                </div>
+                    <div class="btn-holder">
+                        <button type="submit" onclick="sendData()">Submit</button>
+                        <br>
+                        <br>
+                    </div>
             </div>
         </div>
+       
     </div>
     <div class="popupsucess">
         <div>

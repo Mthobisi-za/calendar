@@ -1,4 +1,11 @@
-function popUp(){
+function popUp(str){
+    var num = str.split(' ')[0];
+    var monthNum = getTheMonth('',str.split(' ')[1]).monthNum + 1;
+    var yy = str.split(' ')[2];
+    document.querySelector('.date').value = `${num}/${monthNum}/${yy}`;
+    document.querySelector('.name').value = 'Mthobisi';
+    document.querySelector('.surname').value = 'Ngubane';
+    document.querySelector('.title').value = 'Front end developer';
     document.querySelector('.popup').addEventListener('click', (event)=>{
         var classList = [...event.target.classList];
         if(classList.includes('popup')){
@@ -13,17 +20,20 @@ function addEvents(){
    
     var name = 'Mthobisi  Ngubane';
     [...data].forEach(ele =>{
+        console.log(ele)
         var name_and_surname = ele.name + ' ' + ele.surname;
-        var dateMonth = getTheMonth((ele.Booking_date).split('/')[1] - 1);
-        var yr = (ele.Booking_date).split('/')[2];
-        var day = (ele.Booking_date).split('/')[0];
+        var dateMonth = getTheMonth((ele.booking_date).split('/')[1] - 1).month;
+        var yr = (ele.booking_date).split('/')[2];
+        var day = Number((ele.booking_date).split('/')[0]);
         var title = ele.title;
         var collection = document.querySelectorAll('.' + dateMonth);
         collection.forEach(ele =>{
-            if( Number(ele.textContent)== day && name_and_surname == name) {
+            if( Number(ele.textContent) === day && name_and_surname === name) {
                 console.log('date booked is : ' + ele.textContent);
                 ele.classList.add('booked');
                 ele.classList.remove('activedays')
+            }else{
+
             }
         })
     })
@@ -51,7 +61,7 @@ function rel() {
     });
 };
 
-function getTheMonth(num) {
+function getTheMonth(num, str) {
     var month = new Array();
     month[0] = "January";
     month[1] = "February";
@@ -66,7 +76,10 @@ function getTheMonth(num) {
     month[10] = "November";
     month[11] = "December";
 
-    return month[num];
+    return{
+        month: month[num],
+        monthNum: month.indexOf(str)
+    } 
 }
 
 //Get This Month
@@ -78,7 +91,7 @@ var dayPosition = today.getDay(); //display the position of day in week mon-sun 
 var day = today.getDate(); // display day
 var monthDay = today.getMonth(); //display month in number
 var thisMonth = today.getMonth();
-var month = getTheMonth(monthDay); //display month in word
+var month = getTheMonth(monthDay).month; //display month in word
 var year = today.getFullYear(); //display year
 var thisYear = today.getFullYear();
 $("#monthYear").html(month + ", " + year);
@@ -96,28 +109,28 @@ function displayDays(ddMonth, ddYear) {
     while (x != (lastDay + blanks)) {
         if (x >= firstDayPosition) {
             if (y === day && ddMonth == thisMonth && ddYear == thisYear) {
-                $(`<div class='one-day'><p class='number today ${getTheMonth(ddMonth) + " " + ddYear} activedays'>` + y + "</p></div>").appendTo(".days");
+                $(`<div class='one-day'><p class='number today ${getTheMonth(ddMonth).month + " " + ddYear} activedays'>` + y + "</p></div>").appendTo(".days");
                 y++;
             } else if( (new Date()).getFullYear() === ddYear){
                 console.log((new Date()).getFullYear(), ddYear)
                if((new Date()).getMonth() === ddMonth ){
                    if(y < day){
-                      $(`<div class='one-day'><p class='number ${getTheMonth(ddMonth) + " " + ddYear} pastday '>` + y + "</p></div>").appendTo(".days");
+                      $(`<div class='one-day'><p class='number ${getTheMonth(ddMonth).month + " " + ddYear} pastday '>` + y + "</p></div>").appendTo(".days");
                     y++; 
                    } else{
-                    $(`<div class='one-day'><p class='number ${getTheMonth(ddMonth) + " " + ddYear} activedays'>` + y + "</p></div>").appendTo(".days");
+                    $(`<div class='one-day'><p class='number ${getTheMonth(ddMonth).month + " " + ddYear} activedays'>` + y + "</p></div>").appendTo(".days");
                     y++;
                    }
                     
                 }else if(currrentMonth > ddMonth){
-                     $(`<div class='one-day'><p class='number ${getTheMonth(ddMonth) + " " + ddYear} pastday '>` + y + "</p></div>").appendTo(".days");
+                     $(`<div class='one-day'><p class='number ${getTheMonth(ddMonth).month + " " + ddYear} pastday '>` + y + "</p></div>").appendTo(".days");
                      y++;
                 }else{
-                    $(`<div class='one-day'><p class='number ${getTheMonth(ddMonth) + " " + ddYear} activedays'>` + y + "</p></div>").appendTo(".days");
+                    $(`<div class='one-day'><p class='number ${getTheMonth(ddMonth).month + " " + ddYear} activedays'>` + y + "</p></div>").appendTo(".days");
                     y++;
                 }
             } else {
-                $(`<div class='one-day'><p class='number ${getTheMonth(ddMonth) + " " + ddYear} activedays'>` + y + "</p></div>").appendTo(".days");
+                $(`<div class='one-day'><p class='number ${getTheMonth(ddMonth).month + " " + ddYear} activedays'>` + y + "</p></div>").appendTo(".days");
                 y++;
             }
         } else {
@@ -137,7 +150,7 @@ $("#prev").click(function() {
     } else {
         monthDay = monthDay - 1;
     }
-    month = getTheMonth(monthDay, year);
+    month = getTheMonth(monthDay, year).month;
     $("#monthYear").html(month + ", " + year);
     $(".days").empty();
     displayDays(monthDay, year);
@@ -151,7 +164,7 @@ $("#next").click(function() {
     } else {
         monthDay = monthDay + 1;
     }
-    month = getTheMonth(monthDay);
+    month = getTheMonth(monthDay).month;
     $("#monthYear").html(month + ", " + year);
     $(".days").empty();
     displayDays(monthDay, year);
@@ -188,7 +201,7 @@ addEvents();
         if(res){
             res.forEach(ele =>{
             var obj = {};
-            obj['Booking_date'] = ele['Booking date'];
+            obj['booking_date'] = ele['booking_date'];
             obj['name'] = ele.name;
             obj['surname'] = ele.surname;
             obj['title'] = ele.title;
