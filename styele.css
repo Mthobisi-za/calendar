@@ -1,72 +1,80 @@
-.calendar {
-    width: 100%;
-    height: auto;
-}
-
-.calendar-top {
-    width: 90%;
-    margin: auto;
-    display: flex;
-    justify-content: space-evenly;
-    background-color: #d95043;
-}
-
-.calendar-top button {
-    padding: 20;
-    background-color: transparent;
-    color: #404040;
-    border: none;
-    font-size: 30px;
-}
-
-#monthYear {
-    font-weight: bold;
-    font-size: 30px;
-}
-
-.calendar-bottom {
-    background-color: grey;
-    width: 90%;
-    margin: auto;
-}
-
-.calendar-bottom .days-of-week,
-.days {
-    width: 90%;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 14.28% 14.28% 14.28% 14.28% 14.28% 14.28% 14.28%;
-}
-
-.days-of-week div p {
-    text-align: center;
-}
-
-.days {
-    font-size: 15px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: #F2F2F2;
-}
-
-.days p {
-    cursor: pointer;
-    text-align: center;
-    padding: 5px;
-    transition: 0.5s ease-in-out;
-}
-
-.days p:hover {
-    background-color: #d95043;
-    text-align: center;
-}
-
-.today {
-    background-color: #F2F2F2;
-    color: #404040;
-}
-
-@media (max-width:500px) {
-    .days-of-week div p {
-        font-size: 15px;
+    body {
+        background-color: #404040;
+        padding: 0;
+        margin: 0;
     }
-}
+    
+    .calendar {
+        width: 100%;
+        height: auto;
+    }
+    
+    .calendar-top {
+        width: 100%;
+        margin: auto;
+        display: flex;
+        justify-content: space-evenly;
+        background-color: #d95043;
+    }
+    
+    .calendar-top button {
+        padding: 20;
+        background-color: transparent;
+        color: #404040;
+        border: none;
+        font-size: 30px;
+    }
+    
+    #monthYear {
+        font-weight: bold;
+        font-size: 30px;
+    }
+    
+    .calendar-bottom {
+        /*background-color: grey;*/
+        width: 100%;
+        margin: auto;
+        background-color: white;
+    }
+    
+    .calendar-bottom .days-of-week,
+    .days {
+        width: 100%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 14.28% 14.28% 14.28% 14.28% 14.28% 14.28% 14.28%;
+    }
+    
+    .days-of-week div p {
+        text-align: center;
+    }
+    
+    .days {
+        font-size: 15px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: black;
+        /*color: #F2F2F2;*/
+    }
+    
+    .days p {
+        cursor: pointer;
+        text-align: center;
+        padding: 5px;
+        transition: 0.5s ease-in-out;
+    }
+    
+    .days p:hover {
+        background-color: #d95043;
+        text-align: center;
+    }
+    
+    .today {
+        background-color: #F2F2F2;
+        color: #404040;
+    }
+    
+    @media (max-width:500px) {
+        .days-of-week div p {
+            font-size: 15px;
+        }
+    }

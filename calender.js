@@ -8,7 +8,7 @@ function rel() {
             var arr = list.filter(item => item !== 'today')
             var endof = ele.target.textContent + ' ' + arr[1] + ' ' + arr[2];
 
-
+            document.querySelector('.popup').style.display = 'flex';
             console.log('clicked', endof, arr);
         })
     });

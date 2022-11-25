@@ -2,15 +2,16 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" /> 1
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <link rel="stylesheet" href="./styele.css" />
+    <link rel="stylesheet" href="./popup.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
-    <script src="https://apis.google.com/js/api.js"></script>
+
 
 </head>
 
@@ -53,61 +54,129 @@
             <p id="content"></p>
         </div>
     </div>
-
+    <div class="popup">
+        <div class="popupcontent">
+            <h1>Book Mthobisi Ngubane</h1>
+            <p>Front-end Developer</p>
+            <br>
+            <div class="form">
+                <input type="text" id="input" placeholder="Full name" autofocus>
+                <input type="email" id="input" placeholder="Email ">
+            </div>
+            <br>
+            <button>Book Talent</button>
+            <br>
+        </div>
+    </div>
+    <div class="booking">
+        <div class="left">
+            <label for="from">From</label>
+            <br>
+            <input type="date" id="from">
+        </div>
+        <div class="right">
+            <label for="to">To</label>
+            <br>
+            <input type="date" id="to">
+        </div>
+    </div>
+    <div class="btn-holder">
+        <button>Book Talent</button>
+    </div>
+    <style>
+        .booking {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        
+        .booking .left,
+        .booking .right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        label {
+            font-size: medium;
+            font-weight: bold;
+        }
+        
+        .booking input {
+            padding: 5px;
+            border-radius: 30px;
+            border: 1px red solid;
+        }
+        
+         ::-webkit-datetime-edit {
+            padding: 5px;
+            border-radius: 30px;
+        }
+        
+         ::-webkit-datetime-edit-fields-wrapper {
+            background: none;
+        }
+        
+         ::-webkit-datetime-edit-text {
+            color: red;
+            padding: 0 0.3em;
+        }
+        
+         ::-webkit-datetime-edit-month-field {
+            color: blue;
+        }
+        
+         ::-webkit-datetime-edit-day-field {
+            color: green;
+        }
+        
+         ::-webkit-datetime-edit-year-field {
+            color: purple;
+        }
+        
+         ::-webkit-inner-spin-button {
+            display: block;
+        }
+        
+         ::-webkit-calendar-picker-indicator {
+            padding: 5px;
+            font-size: 20px;
+        }
+        
+        .btn-holder {
+            text-align: center;
+            padding-top: 30px;
+        }
+        
+        .btn-holder button {
+            padding: 9px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: #d95043;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
 </body>
 <script defer src="./calender.js"></script>
 <script defer src="./events.js"></script>
-<script src="https://apis.google.com/js/api.js"></script>
-<script defer>
-    function start() {
-        // 2. Initialize the JavaScript client library.
-        gapi.client.init({
-            'apiKey': 'AIzaSyD7dbSZYCymP0VCVFbIHntJSvokRQq2Wqc',
-            // clientId and scope are optional if auth is not required.
-            'clientId': '673306542856-c91rhs8smh1vu0m2uq2dlsumq1uq4fg5.apps.googleusercontent.com',
-            'scope': 'profile',
-        }).then(function() {
-            // 3. Initialize and make the API request.
-            return gapi.client.request({
-                'path': 'https://people.googleapis.com/v1/people/me?requestMask.includeField=person.names',
-            })
-        }).then(function(response) {
-            console.log(response.result);
-        }, function(reason) {
-            console.log('Error: ' + reason.result.error.message);
-        });
-        //create('mtho')
-        makeApiCall();
-    };
-    // 1. Load the JavaScript client library.
-    gapi.load('client', start);
+<script src="./popup.js"></script>
 
-    function makeApiCall() {
-        var params = {
-            // The ID of the spreadsheet to retrieve data from.
-            spreadsheetId: '1bG5dNlz_bqcFzK0Pes1o8HaRvno6b7drZcotuUV0VLE', // TODO: Update placeholder value.
+<script>
+    var storage = localStorage.getItem('storage');
 
-            // The A1 notation of the values to retrieve.
-            range: '10', // TODO: Update placeholder value.
-
-            // How values should be represented in the output.
-            // The default render option is ValueRenderOption.FORMATTED_VALUE.
-            //valueRenderOption: '', // TODO: Update placeholder value.
-
-            // How dates, times, and durations should be represented in the output.
-            // This is ignored if value_render_option is
-            // FORMATTED_VALUE.
-            // The default dateTime render option is [DateTimeRenderOption.SERIAL_NUMBER].
-            //dateTimeRenderOption: '', // TODO: Update placeholder value.
-        };
-
-        var request = gapi.client.sheets.spreadsheets.values.get(params);
-        request.then(function(response) {
-            // TODO: Change code below to process the `response` object:
-            console.log(response.result);
-        }, function(reason) {
-            console.error('error: ' + reason.result.error.message);
-        });
+    console.log(typeof JSON.parse(storage)[1].available);
+    if (storage == null) {
+        fetch('https://sheet2api.com/v1/H3Z4aFzjTNGS/boderless')
+            .then((res) => res.json())
+            .then(data => {
+                console.log(data);
+                localStorage.setItem('storage', JSON.stringify(data));
+            });
+    } else {
+        console.log('data is there');
     }
 </script>
 
