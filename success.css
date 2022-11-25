@@ -1,0 +1,44 @@
+.popupsucess{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.645);
+    display: none;
+}
+.popupsucess div{
+    display: flex;
+    color: black;
+    text-align: center;
+    width: 50%;
+    background-color: white;
+    margin: auto;
+    flex-direction: column;
+    min-height: 20vh;
+    border-radius: 5px;
+}
+.popupsucess div svg{
+    margin: auto;
+    border: green solid 1px;
+    border-radius: 50%;
+}
+.popupsucess div p{
+    text-align: center;
+}
+.popupsucess div button{
+    background-color: transparent;
+    border: red 1px solid;
+    padding: 10px;
+    width: 20%;
+    align-self: center;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+.popupsucess div a{
+    text-decoration: none;
+    color: black;
+}
