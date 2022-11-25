@@ -5,8 +5,9 @@
     }
     
     .calendar {
-        width: 100%;
+        width: 98%;
         height: auto;
+        margin: auto;
     }
     
     .calendar-top {
@@ -70,7 +71,7 @@
     
     .today {
         background-color: #F2F2F2;
-        color: #404040;
+        color: #272525;
     }
     
     @media (max-width:500px) {
