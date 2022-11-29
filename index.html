@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js" integrity="sha512-OdkysyYNjK4CZHgB+dkw9xQp66hZ9TLqmS2vXaBrftfyJeduVhyy1cOfoxiKdi4/bfgpco6REu6Rb+V2oVIRWg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <link rel="stylesheet" href="./styele.css" />
     <link rel="stylesheet" href="./popup.css">
@@ -215,26 +216,13 @@
 <script defer src="./events.js"></script>
 <script src="./popup.js"></script>
 
-<script>
-import db from './firebase'
-    var storage = localStorage.getItem('storage');
+<script defer>
 
-    console.log(typeof JSON.parse(storage)[1].available);
-    if (storage == null) {
-        fetch('https://sheet2api.com/v1/H3Z4aFzjTNGS/boderless')
-            .then((res) => res.json())
-            .then(data => {
-                console.log(data);
-                localStorage.setItem('storage', JSON.stringify(data));
-            });
-    } else {
-        console.log('data is there');
-    }
-
-    //functions to get value
-
+(async ()=>{
+    const data= await axios.get('https://calendar-api-v-2.herokuapp.com');
+    console.log(await data)
+})()
 
 </script>
-<script src="./firebase.js"></script>
 
 </html>

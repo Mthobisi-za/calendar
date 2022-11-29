@@ -20,7 +20,6 @@ function addEvents() {
 
     var name = 'Mthobisi  Ngubane';
     [...data].forEach(ele => {
-        console.log(ele)
         var name_and_surname = ele.name + ' ' + ele.surname;
         var dateMonth = getTheMonth((ele.booking_date).split('/')[1] - 1).month;
         var yr = (ele.booking_date).split('/')[2];
