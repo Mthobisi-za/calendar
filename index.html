@@ -12,7 +12,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.1.3/axios.min.js" integrity="sha512-0qU9M9jfqPw6FKkPafM3gy2CBAvUWnYVOfNPDYKVuRTel1PrciTj+a9P3loJB+j0QmN2Y0JYQmkBBS8W+mbezg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Document</title>
 
@@ -128,7 +131,7 @@
         </div>
     </div>
     <div class="btn-holder">
-        <button>Book Talent</button>
+        <button class="sub">Book Talent</button>
     </div>
     <style>
         .booking {
@@ -213,6 +216,7 @@
 <script src="./popup.js"></script>
 
 <script>
+import db from './firebase'
     var storage = localStorage.getItem('storage');
 
     console.log(typeof JSON.parse(storage)[1].available);
@@ -226,6 +230,11 @@
     } else {
         console.log('data is there');
     }
+
+    //functions to get value
+
+
 </script>
+<script src="./firebase.js"></script>
 
 </html>
