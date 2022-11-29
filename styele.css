@@ -48,6 +48,7 @@
     
     .days-of-week div p {
         text-align: center;
+        border-bottom: 1px solid #d95043;
     }
     
     .days {
@@ -70,8 +71,8 @@
     }
     
     .today {
-        background-color: #F2F2F2;
-        color: #272525;
+        background-color: #4b4646;
+        color: #e9e5e5;
     }
     
     @media (max-width:500px) {
