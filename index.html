@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <link rel="stylesheet" href="./styele.css" />
     <link rel="stylesheet" href="./popup.css">
-  
+
     <link rel="stylesheet" href="./success.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- 
+
     <title>Document</title>
 
 
@@ -213,85 +213,83 @@
 <script src="./popup.js"></script>
 
 <script defer>
+    (async() => {
+        var namestr = 'Mthobisi Ngubane'
 
-(async ()=>{
-    var namestr = 'Mthobisi Ngubane'
-    function getTheMonth(num, str) {
-    var month = new Array();
-    month[0] = "January";
-    month[1] = "February";
-    month[2] = "March";
-    month[3] = "April";
-    month[4] = "May";
-    month[5] = "June";
-    month[6] = "July";
-    month[7] = "August";
-    month[8] = "September";
-    month[9] = "October";
-    month[10] = "November";
-    month[11] = "December";
+        function getTheMonth(num, str) {
+            var month = new Array();
+            month[0] = "January";
+            month[1] = "February";
+            month[2] = "March";
+            month[3] = "April";
+            month[4] = "May";
+            month[5] = "June";
+            month[6] = "July";
+            month[7] = "August";
+            month[8] = "September";
+            month[9] = "October";
+            month[10] = "November";
+            month[11] = "December";
 
-    var numberD = new Array();
+            var numberD = new Array();
 
-    return {
-        month: month[num],
-        monthNum: month.indexOf(str)
-    }
-}
-
-/***
- * 
- * booking_date
-: 
-"20/11/2022"
-name
-: 
-"Mthobisi "
-surname
-: 
-"Ngubane"
-title
-: 
-"Front end developer"
-*/
-var arg = ["Mthobisi","Ngubane","mthobisi@gmail.com","grey-za","Mthobisi Ngubane","Front end developer","20/12/2022 - 10/01/2023"]
-async function makeChange(){
-    console.log(JSON.parse(localStorage.getItem('data')))
-    if(JSON.parse(localStorage.getItem('data')).length === 0){
-        //localStorage.removeItem('data');
-    }
-    if(JSON.parse(localStorage.getItem('data')) === null ){
-         console.log('making changes')
-        var newdata = [];
-        const {data, error, message}= await axios.get('https://calendar-api-v-2.herokuapp.com');
-        console.log(message)
-        data.data.forEach(element => {
-            
-            var obj = {
-                booking_date: element[element.length-1],
-                name: element[0],
-                surname: element[1],
-                title: element[5],
-                from_date: element[element.length-1].split('-')[0],
-                to_date:  element[element.length-1].split('-')[1]
+            return {
+                month: month[num],
+                monthNum: month.indexOf(str)
             }
-            console.log(obj)
-        });
-        localStorage.setItem('data', JSON.stringify(await newdata));
-    
-    }else{
-        console.log('data already exist')
-    };
-   
-    
-}
-    makeChange();
-    setInterval(() => {
-        localStorage.removeItem('data');
-        makeChange();
-    }, 500000);
-})()
+        }
 
+        /***
+         * 
+         * booking_date
+        : 
+        "20/11/2022"
+        name
+        : 
+        "Mthobisi "
+        surname
+        : 
+        "Ngubane"
+        title
+        : 
+        "Front end developer"
+        */
+        var arg = ["Mthobisi", "Ngubane", "mthobisi@gmail.com", "grey-za", "Mthobisi Ngubane", "Front end developer", "20/12/2022 - 10/01/2023"]
+        async function makeChange() {
+            console.log(JSON.parse(localStorage.getItem('data')))
+
+            if (JSON.parse(localStorage.getItem('data')) === null) {
+                console.log('making changes')
+                var newdata = [];
+                var data = await axios.get('https://newapi-v1.herokuapp.com');
+                console.log(data.data.data)
+                localStorage.setItem('data', JSON.stringify(await data.data.data));
+                /***await data.data.data.forEach(element => {
+                           
+                    var obj = {
+                        booking_date: element[element.length - 1],
+                        name: element[0],
+                        surname: element[1],
+                        title: element[5],
+                        from_date: element[element.length - 1].split('-')[0],
+                        to_date: element[element.length - 1].split('-')[1]
+                    }
+                    console.log(obj)
+                });**/
+
+
+            } else {
+                console.log('data already exist')
+            };
+
+
+        }
+        makeChange();
+        setInterval(() => {
+            localStorage.removeItem('data');
+            makeChange();
+        }, 500000);
+    })()
 </script>
 
 </html>
