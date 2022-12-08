@@ -229,6 +229,7 @@
                 var data = await axios.get('https://newapi-v1.herokuapp.com');
                 console.log(data.data.data)
                 localStorage.setItem('data', JSON.stringify(await data.data.data));
+                window.location.reload();
                 /***await data.data.data.forEach(element => {
                            
                     var obj = {
