@@ -16,27 +16,40 @@ function popUp(str) {
 
 
 function addEvents() {
+    var monthY = (document.getElementById('monthYear').textContent.split(',')[1]).trim();
+    var monthM = (document.getElementById('monthYear').textContent.split(',')[0]).trim();
 
     var data = JSON.parse(localStorage.getItem('data'));
-    var name = 'Mthobisi  Ngubane';
+    var name = 'Mthobisi Ngubane';
     [...data].forEach(ele => {
-        var name_and_surname = ele.name + ' ' + ele.surname;
-        var dateMonthFrom = getTheMonth((ele.from_date).split('/')[1] - 1).month;
-        //var dateMonthTo = getTheMonth((ele.from_date).split('/')[2] - 1).month;
-        //console.log(dateMonthFrom, dateMonthTo);
-        var yr = (ele.booking_date).split('/')[2];
-        var day = Number((ele.booking_date).split('/')[0]);
-        var title = ele.title;
-        var collection = document.querySelectorAll('.' + dateMonthFrom);
-        collection.forEach(ele => {
-            if (Number(ele.textContent) === day && name_and_surname === name) {
-                console.log('date booked is : ' + ele.textContent);
-                ele.classList.add('booked');
-                ele.classList.remove('activedays')
-            } else {
+        var name_and_surname = ele.FirstName + ' ' + ele.LastName;
+        if (ele.FirstName === 'Mthobisi' && ele.LastName === 'Ngubane') {
+            ele.date_booked.forEach(dt => {
 
-            }
-        })
+                var yr = (dt).split('-')[0];
+                var day = Number((dt).split('-')[2]);
+                var title = ele.title;
+                var dateMonthFrom = getTheMonth(Number((dt).split('-')[1] - 1)).month;
+                var collection = document.querySelectorAll('.' + dateMonthFrom);
+                //console.log(getTheMonth(Number((dt).split('-')[1])).month, monthM)
+                console.log(dateMonthFrom)
+                collection.forEach(ele => {
+                    if (true) {
+                        if (Number(ele.textContent) === day) {
+                            console.log('date booked is : ' + ele.textContent);
+                            ele.classList.add('booked');
+                            ele.classList.remove('activedays')
+                        } else {
+                            console.log('failed')
+                        }
+                    }
+
+                })
+
+            })
+        }
+
+
     })
 }
 
@@ -144,6 +157,7 @@ function displayDays(ddMonth, ddYear) {
     }
 
     //
+    addEvents();
 }
 
 $("#prev").click(function() {
@@ -225,8 +239,8 @@ if (storage) {
 
 
 addEvents();
-let makechange = setInterval(()=>{
-if(JSON.parse(localStorage.getItem('data')).length === 0 || JSON.parse(localStorage.getItem('data')).length === null){
-    addEvents();
-}
+let makechange = setInterval(() => {
+    if (JSON.parse(localStorage.getItem('data')).length === 0 || JSON.parse(localStorage.getItem('data')).length === null) {
+        addEvents();
+    }
 }, 5000);

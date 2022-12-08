@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="./inputs.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.0/axios.min.js" integrity="sha512-OdkysyYNjK4CZHgB+dkw9xQp66hZ9TLqmS2vXaBrftfyJeduVhyy1cOfoxiKdi4/bfgpco6REu6Rb+V2oVIRWg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
     <link rel="stylesheet" href="./styele.css" />
@@ -60,61 +61,24 @@
         </div>
 
     </div>
-    <!----
-    <div class="popup">
-        <div class="popupbox">
-            <div class="bio">
-                <p class="titlebio">Book {Name}</p>
-                <p class="position">Occupation {Front end developer}</p>
-                <p class="bookday">Day of booking : <span class='dateofbooking'></span></p>
-
-                <div class="formbook">
-                    <input type="text" name="name" placeholder="Name" hidden class="name" />
-                    <input type="text" name="surname" placeholder="Surname" hidden class="surname" />
-                    <input type="text" name="title" placeholder="Title" hidden class="title" />
-                    <input type="text" name="Booking date" placeholder="Booking Date" hidden class="date" />
-                    <input type="text" name="client name" placeholder="Name" class="cname" required>
-                    <input type="email" name="client email" placeholder="Email" class="cemail" required>
-                </div>
-                <br>
-                <br>
-                <div class="btn-holder">
-                    <button type="submit" onclick="sendData()">Submit</button>
-                    <br>
-                    <br>
-                </div>
-            </div>
+    <div class="input-fields">
+        <div class="input-group">
+            <input value="" class="form-control" type="text" name="text-1542372332072" id="text-1542372332072" required="required" placeholder="Name">
+            <label for="text-1542372332072">Full Names</label>
+            <div class="req-mark">!</div>
+        </div> <br>
+        <div class="input-group">
+            <input value="" class="form-control" type="email" name="text-1542372332072" id="text-1542372332072" required="required" placeholder="Email">
+            <label for="text-1542372332072">Email</label>
+            <div class="req-mark">!</div>
         </div>
-
-    </div>
-    <div class="popupsucess">
-        <div>
-            <br> <br>
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-check" width="70" height="70" viewBox="0 0 24 24" stroke-width="1.5" stroke="black" fill="none" stroke-linecap="round" stroke-linejoin="round">
-            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-            <path d="M5 12l5 5l10 -10" />
-          </svg>
-            <p>Successfully Booked!</p>
-            <br>
-            <br>
-            <button> <a href="/">Home</a> </button>
-            <br> <br>
+        <br>
+        <div class="input-group">
+            <input value="" class="form-control" type="text" name="text-1542372332072" id="text-1542372332072" required="required" placeholder="Company Name">
+            <label for="text-1542372332072">Company Name</label>
+            <div class="req-mark">!</div>
         </div>
     </div>
-    <div class="popup">
-        <div class="popupcontent">
-            <h1>Book Mthobisi Ngubane</h1>
-            <p>Front-end Developer</p>
-            <br>
-            <div class="form">
-                <input type="text" id="input" placeholder="Full name" autofocus>
-                <input type="email" id="input" placeholder="Email ">
-            </div>
-            <br>
-            <button>Book Talent</button>
-            <br>
-        </div>
-    </div>----->
     <div class="booking">
         <div class="left">
             <label for="from">From</label>
@@ -130,6 +94,7 @@
     <div class="btn-holder">
         <button class="sub">Book Talent</button>
     </div>
+    <br> <br> <br>
     <style>
         .booking {
             width: 100%;
