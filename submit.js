@@ -8,9 +8,10 @@ document.querySelector('.sub').addEventListener('click', () => {
     console.log(name_and_surname, e_email, booked_date);
     //'/
     async function sendnewdata() {
-        var res = await axios.get(`https://calender-api-v2.herokuapp.com/newupdate/Mthobisi/Ngubane/${e_email}/${company}/${name_and_surname}/Front%end%developer/${booked_date}`)
+        var role = 'Front end Developer';
+        var res = await axios.get(`https://calender-api-v2.herokuapp.com/newupdate/Mthobisi/Ngubane/${e_email}/${company}/${name_and_surname}/${role}/${booked_date}`)
         console.log(res, 'done')
     };
     sendnewdata();
-    console.log('done')
+    console.log('done');
 })
