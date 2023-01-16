@@ -161,6 +161,7 @@ function displayDays(ddMonth, ddYear) {
 }
 
 $("#prev").click(function() {
+    console.log('clicked')
     if (monthDay == 0) {
         monthDay = 11;
         year--;
@@ -188,6 +189,22 @@ $("#next").click(function() {
     rel();
     addEvents();
 });
+
+// document.getElementById('prev').addEventListener('click', () => {
+//     console.log('clicked')
+//     if (monthDay == 0) {
+//         monthDay = 11;
+//         year--;
+//     } else {
+//         monthDay = monthDay - 1;
+//     }
+//     month = getTheMonth(monthDay, year).month;
+//     $("#monthYear").html(month + ", " + year);
+//     $(".days").empty();
+//     displayDays(monthDay, year);
+//     rel();
+//     addEvents();
+// })
 
 
 

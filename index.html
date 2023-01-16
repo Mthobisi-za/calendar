@@ -23,11 +23,11 @@
 <body>
     <div class="calendar">
         <div class="calendar-top">
-            <button class="icons" id="prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+            <button class="icons prev" id="prev"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
             <div class="top">
                 <h3 id="monthYear"></h3>
             </div>
-            <button class="icons" id="next"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+            <button class="icons next" id="next"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
         </div>
         <div class="calendar-bottom">
             <div class="days-of-week">
@@ -226,7 +226,7 @@
             if (JSON.parse(localStorage.getItem('data')) === null) {
                 console.log('making changes')
                 var newdata = [];
-                var data = await axios.get('https://newapi-v1.herokuapp.com');
+                var data = await axios.get('https://calender-api-v2.herokuapp.com');
                 console.log(data.data.data)
                 localStorage.setItem('data', JSON.stringify(await data.data.data));
                 window.location.reload();
