@@ -8,7 +8,7 @@ document.querySelector('.sub').addEventListener('click', () => {
     console.log(name_and_surname, e_email, booked_date);
     //'/
     async function sendnewdata() {
-        var res = await axios.get(`https://newapi-v1.herokuapp.com/newupdate/Mthobisi/Ngubane/${e_email}/${company}/${name_and_surname}/Front%end%developer/${booked_date}`)
+        var res = await axios.get(`https://calender-api-v2.herokuapp.com/newupdate/Mthobisi/Ngubane/${e_email}/${company}/${name_and_surname}/Front%end%developer/${booked_date}`)
         console.log(res, 'done')
     };
     sendnewdata();
