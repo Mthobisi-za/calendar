@@ -4,5 +4,4 @@ window.addEventListener('message', function(event) {
     document.querySelector('.name').value = data.name;
     document.querySelector('.surname').value = data.surname;
     document.querySelector('.role').value = data.role;
-    alert('done > check inputs');
 });
