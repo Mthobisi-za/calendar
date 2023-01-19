@@ -8,8 +8,14 @@ document.querySelector('.sub').addEventListener('click', () => {
     console.log(name_and_surname, e_email, booked_date);
 
     async function sendnewdata() {
-        var role = 'Front end Developer';
-        var res = await axios.get(`https://calender-api-v2.herokuapp.com/newupdate/Mthobisi/Ngubane/${e_email}/${company}/${name_and_surname}/${role}/${booked_date}`)
+        //get value from postmessage api
+
+        var bombName = document.getElementById('name').vaue;
+        var bombSurname = document.getElementById('surname').vaue;
+        var bombRole = document.getElementById('role').vaue;
+
+
+        var res = await axios.get(`https://calender-api-v2.herokuapp.com/newupdate/${bombName}/${bombSurname}/${e_email}/${company}/${name_and_surname}/${bombRole}/${booked_date}`)
         console.log(res, 'done')
     };
     sendnewdata();
