@@ -18,7 +18,7 @@ body {
     border-bottom-left-radius: 41px;
     border-bottom-right-radius: 41px;
     border-top-left-radius: 41px;
-    border-top-right-radius: 0;
+    border-top-right-radius: 41px;
     box-shadow: 0 17px 40px 0 rgba(75, 128, 182, 0.07);
     margin-bottom: 22px;
     position: relative;

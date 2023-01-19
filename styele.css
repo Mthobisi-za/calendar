@@ -15,7 +15,7 @@ body {
     margin: auto;
     display: flex;
     justify-content: space-evenly;
-    background-color: #d95043;
+    background-color: #ff1e0c;
 }
 
 .calendar-top button {
@@ -48,7 +48,7 @@ body {
 
 .days-of-week div p {
     text-align: center;
-    border-bottom: 1px solid #d95043;
+    border-bottom: 1px solid #ff1e0c;
 }
 
 .days {
@@ -70,7 +70,7 @@ body {
 }
 
 .activedays:hover {
-    background-color: #d95043;
+    background-color: #ff1e0c;
 }
 
 .today {

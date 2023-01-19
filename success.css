@@ -1,4 +1,4 @@
-.popupsucess{
+.popupsucess {
     width: 100%;
     position: absolute;
     top: 0;
@@ -8,7 +8,8 @@
     background-color: rgba(0, 0, 0, 0.645);
     display: none;
 }
-.popupsucess div{
+
+.popupsucess div {
     display: flex;
     color: black;
     text-align: center;
@@ -19,17 +20,20 @@
     min-height: 20vh;
     border-radius: 5px;
 }
-.popupsucess div svg{
+
+.popupsucess div svg {
     margin: auto;
     border: green solid 1px;
     border-radius: 50%;
 }
-.popupsucess div p{
+
+.popupsucess div p {
     text-align: center;
 }
-.popupsucess div button{
+
+.popupsucess div button {
     background-color: transparent;
-    border: red 1px solid;
+    border: #ff1e0c 1px solid;
     padding: 10px;
     width: 20%;
     align-self: center;
@@ -38,7 +42,8 @@
     font-size: 20px;
     cursor: pointer;
 }
-.popupsucess div a{
+
+.popupsucess div a {
     text-decoration: none;
     color: black;
 }
