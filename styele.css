@@ -21,7 +21,7 @@ body {
 .calendar-top button {
     padding: 20;
     background-color: transparent;
-    color: #404040;
+    color: white;
     border: none;
     font-size: 30px;
 }
@@ -29,6 +29,7 @@ body {
 #monthYear {
     font-weight: bold;
     font-size: 30px;
+    color: white;
 }
 
 .calendar-bottom {
