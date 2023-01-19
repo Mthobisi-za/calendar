@@ -10,9 +10,9 @@ document.querySelector('.sub').addEventListener('click', () => {
     async function sendnewdata() {
         //get value from postmessage api
 
-        var bombName = document.getElementById('name').value;
-        var bombSurname = document.getElementById('surname').value;
-        var bombRole = document.getElementById('role').value;
+        var bombName = document.querySelector('.name').value;
+        var bombSurname = document.querySelector('.surname').value;
+        var bombRole = document.querySelector('.role').value;
 
 
         var res = await axios.get(`https://calender-api-v2.herokuapp.com/newupdate/${bombName}/${bombSurname}/${e_email}/${company}/${name_and_surname}/${bombRole}/${booked_date}`)
