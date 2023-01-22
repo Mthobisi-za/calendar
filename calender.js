@@ -20,10 +20,11 @@ function addEvents() {
     var monthM = (document.getElementById('monthYear').textContent.split(',')[0]).trim();
 
     var data = JSON.parse(localStorage.getItem('data'));
-    var name = 'Mthobisi Ngubane';
+    var bombName = document.querySelector('.name').textContent;
+    var bombSurname = document.querySelector('.surname').textContent;
     [...data].forEach(ele => {
         var name_and_surname = ele.FirstName + ' ' + ele.LastName;
-        if (ele.FirstName === 'Mthobisi' && ele.LastName === 'Ngubane') {
+        if (ele.FirstName === bombName && ele.LastName === bombSurname) {
             ele.date_booked.forEach(dt => {
 
                 var yr = (dt).split('-')[0];
