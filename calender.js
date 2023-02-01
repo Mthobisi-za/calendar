@@ -22,36 +22,40 @@ function addEvents() {
     var data = JSON.parse(localStorage.getItem('data'));
     var bombName = document.querySelector('.name').textContent;
     var bombSurname = document.querySelector('.surname').textContent;
-    [...data].forEach(ele => {
-        var name_and_surname = ele.FirstName + ' ' + ele.LastName;
-        if (ele.FirstName === bombName && ele.LastName === bombSurname) {
-            ele.date_booked.forEach(dt => {
+  try {
+        [...data].forEach(ele => {
+            var name_and_surname = ele.FirstName + ' ' + ele.LastName;
+            if (ele.FirstName === bombName && ele.LastName === bombSurname) {
+                ele.date_booked.forEach(dt => {
 
-                var yr = (dt).split('-')[0];
-                var day = Number((dt).split('-')[2]);
-                var title = ele.title;
-                var dateMonthFrom = getTheMonth(Number((dt).split('-')[1] - 1)).month;
-                var collection = document.querySelectorAll('.' + dateMonthFrom);
-                //console.log(getTheMonth(Number((dt).split('-')[1])).month, monthM)
-                console.log(dateMonthFrom)
-                collection.forEach(ele => {
-                    if (true) {
-                        if (Number(ele.textContent) === day) {
-                            console.log('date booked is : ' + ele.textContent);
-                            ele.classList.add('booked');
-                            ele.classList.remove('activedays')
-                        } else {
-                            console.log('failed')
+                    var yr = (dt).split('-')[0];
+                    var day = Number((dt).split('-')[2]);
+                    var title = ele.title;
+                    var dateMonthFrom = getTheMonth(Number((dt).split('-')[1] - 1)).month;
+                    var collection = document.querySelectorAll('.' + dateMonthFrom);
+                    //console.log(getTheMonth(Number((dt).split('-')[1])).month, monthM)
+                    console.log(dateMonthFrom)
+                    collection.forEach(ele => {
+                        if (true) {
+                            if (Number(ele.textContent) === day) {
+                                console.log('date booked is : ' + ele.textContent);
+                                ele.classList.add('booked');
+                                ele.classList.remove('activedays')
+                            } else {
+                                console.log('failed')
+                            }
                         }
-                    }
+
+                    })
 
                 })
-
-            })
-        }
+            }
 
 
-    })
+        })
+    } catch (error) {
+
+    }
 }
 
 
